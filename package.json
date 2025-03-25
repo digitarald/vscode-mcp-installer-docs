@@ -1,8 +1,8 @@
 {
   "name": "echo",
   "version": "0.1.0",
-  "description": "Just Echo",
-  "private": true,
+  "description": "vscode-mcp-installer-docs",
+  "license": "MIT",
   "type": "module",
   "bin": {
     "echo": "./build/index.js"

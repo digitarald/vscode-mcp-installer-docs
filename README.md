@@ -1,4 +1,4 @@
-# VS Code MCP Installer
+# VS Code MCP Installer Docs
 
 A TypeScript-based MCP server that provides tools for installing MCP servers in VS Code.
 

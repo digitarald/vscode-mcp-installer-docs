@@ -3,7 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 
 const server = new McpServer({
-  name: "VS Code MCP Installer",
+  name: "VS Code MCP Installer Docs",
   version: "1.0.0"
 }, {
   instructions: "Create VS Code installation tools for MCP server"
