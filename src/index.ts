@@ -14,8 +14,16 @@ const server = new McpServer({
 const serverConfigSchema = z.object({
   name: z.string().describe("Name of the MCP server"),
   command: z.string().describe("Command to run the MCP server"),
-  args: z.array(z.string()).optional().describe("Arguments to pass to the command"),
-  env: z.record(z.string()).optional().describe("Environment variables to set for the MCP server")
+  args: z.array(z.string()).optional().describe("Arguments to pass to the command (can use ${input:…} variables)"),
+  env: z.record(z.string()).optional().describe("Environment variables to set for the MCP server (can use ${input:…} variables)"),
+  inputs: z.array(
+    z.object({
+      id: z.string().describe("Input ID"),
+      default: z.string().optional().describe("Default value for the input"),
+      description: z.string().optional().describe("Description of the input"),
+      password: z.boolean().optional().describe("Whether the input is a password or API key")
+    })
+  ).optional().describe("Input variables for the MCP server to use in args and env (https://code.visualstudio.com/docs/reference/variables-reference#_input-variables)")
 });
 
 // Tool to generate VS Code CLI command
