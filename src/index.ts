@@ -42,13 +42,22 @@ server.tool(
   { config: serverConfigSchema },
   async ({ config }) => {
     const configJSON = JSON.stringify(config);
-    const link = `vscode:mcp/install?${encodeURIComponent(configJSON)}`;
+    const encodedConfig = encodeURIComponent(configJSON);
+    
+    // New format prepends vscode.dev to the protocol
+    const stableLink = `https://vscode.dev/redirect?url=${encodeURIComponent(`vscode:mcp/install?${encodedConfig}`)}`;
+    const insiderLink = `https://insiders.vscode.dev/redirect?url=${encodeURIComponent(`vscode-insiders:mcp/install?${encodedConfig}`)}`;
     
     return {
       content: [
-        { type: "text", text: `VS Code URI to install MCP server: ${link}\n
-          Example badge image: https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Server&color=0098FF\n
-          Add markdown link badges both for VS Code (vscode) and VS Code Insider (vscode-insider).
+        { type: "text", text: `VS Code URIs to install MCP server:\n
+- Stable: ${stableLink}\n
+- Insiders: ${insiderLink}\n
+Badge templates:\n
+- Stable: [<img alt="Install in VS Code" src="https://img.shields.io/badge/VS_Code-VS_Code?style=flat-square&label=Install%20Server&color=0098FF">](…)\n
+- Insiders: [<img alt="Install in VS Code Insiders" src="https://img.shields.io/badge/VS_Code_Insiders-VS_Code_Insiders?style=flat-square&label=Install%20Server&color=24bfa5">](…)\n
+
+Add markdown link badges both for VS Code (vscode) and VS Code Insider (vscode-insider).
 ` }
       ]
     };
