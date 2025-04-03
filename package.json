@@ -16,7 +16,8 @@
     "build"
   ],
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "build": "tsc && shx chmod +x dist/*.js",
+    "prepare": "npm run build",
     "watch": "tsc --watch",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js"
   },
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
+    "shx": "^0.4.0",
     "typescript": "^5.3.3"
   }
 }
