@@ -16,8 +16,8 @@
     "build"
   ],
   "scripts": {
-    "build": "tsc && shx chmod +x dist/*.js",
-    "prepare": "npm run build",
+    "build": "tsc && shx chmod +x build/*.js",
+    "preinstall": "npm run build",
     "watch": "tsc --watch",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js"
   },
