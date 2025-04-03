@@ -1,11 +1,16 @@
 {
-  "name": "echo",
+  "name": "vscode-mcp-installer-docs",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitarald/vscode-mcp-installer-docs.git"
+  },
   "description": "vscode-mcp-installer-docs",
   "license": "MIT",
+  "author": "Harald Kirschner <harald@digitarald.com>",
   "type": "module",
   "bin": {
-    "echo": "./build/index.js"
+    "vscode-mcp-installer-docs": "./build/index.js"
   },
   "files": [
     "build"
