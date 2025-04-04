@@ -8,6 +8,16 @@ This MCP server implements tools to help install other MCP servers in VS Code. I
 - Tools for generating VS Code URIs for protocol handler installation
 - Configuration schemas for MCP servers
 
+## Quick Start
+
+Run this tool directly with npx:
+
+```bash
+npx github:digitarald/vscode-mcp-installer-docs
+```
+
+The tool will either connect to an existing MCP client or provide installation instructions.
+
 ## Features
 
 ### Tools

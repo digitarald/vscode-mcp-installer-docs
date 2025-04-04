@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/digitarald/vscode-mcp-installer-docs.git"
   },
-  "description": "vscode-mcp-installer-docs",
+  "description": "VS Code MCP Server installation documentation generator",
   "license": "MIT",
   "author": "Harald Kirschner <harald@digitarald.com>",
   "type": "module",
@@ -17,16 +17,26 @@
   ],
   "scripts": {
     "build": "tsc && shx chmod +x build/*.js",
-    "preinstall": "npm run build",
+    "prepare": "npm run build && husky install",
     "watch": "tsc --watch",
-    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "postinstall": "husky install",
+    "pre-commit": "npm run build && git add build/"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.7.0"
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "shx": "^0.4.0",
     "typescript": "^5.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
   }
 }

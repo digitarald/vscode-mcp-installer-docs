@@ -1,5 +1,5 @@
 node_modules/
-build/
+# build/ - We want to include the build directory in git
 *.log
 .env*
 .DS_Store
